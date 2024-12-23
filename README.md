@@ -1,2 +1,3 @@
 # Gatherly
-A community based project 
+
+This is a community based project
