@@ -1,0 +1,54 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "import", "jsx-a11y"],
+  "rules": {
+    "react/react-in-jsx-scope": "off", // React 17+ does not require React in scope
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-unused-modules": ["error", { "unusedExports": true }],
+    "jsx-a11y/anchor-is-valid": "off", // For <a> tags with custom handlers (common in Vite/React)
+    "prettier/prettier": "error" // Integrate Prettier with ESLint
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect React version
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true // Resolve types as well
+      }
+    }
+  }
+}
